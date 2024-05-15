@@ -221,26 +221,26 @@ class _MyAppState extends State<MyApp> {
                 for (var j = 0; j < box.length; j++) {
                   box[j]["check"] = false;
                 }
-              } else if (box[0]['item_box'] == itemy &&
-                  box[3]['item_box'] == itemy &&
-                  box[6]['item_box'] == itemy) {
-                county++;
+              } else if (box[0]['item_box'] == itemx &&
+                  box[3]['item_box'] == itemx &&
+                  box[6]['item_box'] == itemx) {
+                countx++;
                 checkstop = true;
                 for (var j = 0; j < box.length; j++) {
                   box[j]["check"] = false;
                 }
-              } else if (box[1]['item_box'] == itemy &&
-                  box[4]['item_box'] == itemy &&
-                  box[7]['item_box'] == itemy) {
-                county++;
+              } else if (box[1]['item_box'] == itemx &&
+                  box[4]['item_box'] == itemx &&
+                  box[7]['item_box'] == itemx) {
+                countx++;
                 checkstop = true;
                 for (var j = 0; j < box.length; j++) {
                   box[j]["check"] = false;
                 }
-              } else if (box[2]['item_box'] == itemy &&
-                  box[5]['item_box'] == itemy &&
-                  box[8]['item_box'] == itemy) {
-                county++;
+              } else if (box[2]['item_box'] == itemx &&
+                  box[5]['item_box'] == itemx &&
+                  box[8]['item_box'] == itemx) {
+                countx++;
                 checkstop = true;
                 for (var j = 0; j < box.length; j++) {
                   box[j]["check"] = false;
@@ -266,6 +266,15 @@ class _MyAppState extends State<MyApp> {
             await Future.delayed(const Duration(seconds: 1));
             if (!checkxy && !checkstop) {
               setState(() {
+                bool checkbox = false;
+                for (var i = 0; i < box.length; i++) {
+                  if (box[i]['check'] == true) {
+                    checkbox = true;
+                  }
+                }
+                if (!checkbox) {
+                  return;
+                }
                 int a = random.nextInt(9);
                 while (true) {
                   if (box[a]['check']) {
